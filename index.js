@@ -5,7 +5,12 @@ const multer = require('multer');
 
 const express = require('express');
 const app = express();
+
+const cors = require('cors');
+
 app.use(express.json());
+app.use(cors());
+
 
 
 //for being able to access local storage of the laptop from the browser using the localhost thing instead of the actual full path name of the file
@@ -15,6 +20,8 @@ const path = require('path');
 app.use("/images", express.static(path.join(__dirname, "/images")))
 
 const mongoose = require('mongoose');
+
+
 mongoose.connect(process.env.MONGO_URL
 ).then(() => { console.log("connected to mongo") }).catch((err) => { console.log(err) });
 
