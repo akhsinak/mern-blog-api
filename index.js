@@ -6,6 +6,13 @@ const app = express();
 app.use(express.json());
 
 
+
+const cors = require('cors');
+
+app.use(express.json());
+app.use(cors());
+
+
 //for being able to access local storage of the laptop from the browser using the localhost thing instead of the actual full path name of the file
 
 // const path = require('path');
